@@ -1,9 +1,8 @@
 <template>
-  <div class="item mb-5">
-    <h1>Картинка</h1>
-    <h1>Товар</h1>
-    <h2>Категория</h2>
-    <p>Цена</p>
+  <div class="item mb-5 mx-3">
+    <h1>{{ item.title }}</h1>
+    <h2>{{ item.category }}</h2>
+    <p>{{ item.price }}</p>
     <v-btn small fab dark color="indigo">
       <v-icon dark>
         mdi-plus
@@ -14,7 +13,10 @@
 
 <script>
 export default {
-  name: 'ItemCard'
+  name: 'ItemCard',
+  props: {
+    item: { type: Object, required: true }
+  }
 }
 </script>
 

@@ -45,7 +45,9 @@
         />
       </div>
       <v-btn icon>
-        <v-icon large>mdi-account</v-icon>
+        <v-icon large>
+          mdi-account
+        </v-icon>
       </v-btn>
       <v-btn icon class="ml-4">
         <v-icon large>

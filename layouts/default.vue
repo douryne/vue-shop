@@ -49,7 +49,7 @@
           mdi-account
         </v-icon>
       </v-btn>
-      <v-btn icon class="ml-4">
+      <v-btn nuxt to="/basket" icon class="ml-4">
         <v-icon large>
           mdi-cart-arrow-down
         </v-icon>

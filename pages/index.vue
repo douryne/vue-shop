@@ -20,21 +20,9 @@ export default {
   components: {
     itemCard
   },
-  data () {
-    return {
-      items: [
-        { title: 'Пылосос', category: 'Категория', price: 4200 },
-        { title: 'Пылосос', category: 'Категория', price: 4200 },
-        { title: 'Пылосос', category: 'Категория', price: 4200 },
-        { title: 'Товар', category: 'Категория', price: 4200 },
-        { title: 'Товар', category: 'Категория', price: 4200 },
-        { title: 'Товар', category: 'Категория', price: 4200 },
-        { title: 'Товар', category: 'Категория', price: 4200 },
-        { title: 'Товар', category: 'Категория', price: 4200 },
-        { title: 'Товар', category: 'Категория', price: 4200 },
-        { title: 'Товар', category: 'Категория', price: 4200 },
-        { title: 'Товар', category: 'Категория', price: 4200 }
-      ]
+  computed: {
+    items () {
+      return this.$store.getters['items/getCategoryItems']()
     }
   }
 }

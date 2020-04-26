@@ -1,6 +1,10 @@
 <template>
   <div class="item mb-5 mx-3">
-    <h1>{{ item.title }}</h1>
+    <h1 @click="getItem(item)">
+      <nuxt-link :to="{ name: 'itemPage' }">
+        {{ item.title }}
+      </nuxt-link>
+    </h1>
     <h2>{{ item.category }}</h2>
     <p>{{ item.price }}</p>
     <v-btn small fab dark color="indigo" @click="pushToBasket(item)">
@@ -19,7 +23,7 @@ export default {
   props: {
     item: { type: Object, required: true }
   },
-  methods: mapMutations('items', ['pushToBasket'])
+  methods: mapMutations('items', ['pushToBasket', 'getItem'])
 }
 </script>
 
@@ -28,5 +32,7 @@ export default {
     padding: 50px;
     border: 1px solid #CBCBCB;
     border-radius: 10%;
+    width: 300px;
+    height: auto;
   }
 </style>

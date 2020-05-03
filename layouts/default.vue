@@ -56,7 +56,7 @@
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
-          <v-list-item-content @mouseenter="handleEnter(item.title)">
+          <v-list-item-content>
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
@@ -179,10 +179,7 @@ export default {
       this.selected = {}
       this.problemText = ''
     },
-    ...mapActions('alerts', ['getAlert']),
-    handleEnter (text) {
-      console.log(text)
-    }
+    ...mapActions('alerts', ['getAlert'])
   }
 }
 </script>

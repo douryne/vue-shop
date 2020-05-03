@@ -7,7 +7,7 @@
     </h1>
     <h2>{{ item.category }}</h2>
     <p>{{ item.price }}</p>
-    <v-btn small fab dark color="indigo" @click="pushToBasket(item)">
+    <v-btn small fab dark color="indigo" @click="saveItemInTheBasket(item)">
       <v-icon dark>
         mdi-plus
       </v-icon>
@@ -16,14 +16,17 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'ItemCard',
   props: {
     item: { type: Object, required: true }
   },
-  methods: mapMutations('items', ['pushToBasket', 'getItem'])
+  methods: {
+    ...mapMutations('items', ['getItem']),
+    ...mapActions('items', ['saveItemInTheBasket'])
+  }
 }
 </script>
 

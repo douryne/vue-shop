@@ -10,6 +10,7 @@
       <item-card
         v-for="(item, index) in basket"
         :key="index"
+        removable
         :item="item"
       />
     </div>

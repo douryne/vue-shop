@@ -1,16 +1,14 @@
 <template>
   <div class="d-flex flex-column">
-    <h1 class="mb-12 mt-6">
-      КАРТИНКА ВСЁ КАРТИНКА АААА КАРТИНКА ААА
-    </h1>
+    <v-img :src="item.src" class="mb-12 mt-6" />
     <hr>
     <div>
-      <h1 class="mt-12 mb-6">
+      <h1>{{ item.title }}</h1>
+      <h2 class="mt-6 mb-4">
         Specs:
-      </h1>
-      <h3>{{ item.title }}</h3>
+      </h2>
       <h4>{{ item.specs }}</h4>
-      <v-btn>
+      <v-btn color="indigo accent-1">
         <nuxt-link class="checkout" to="/checkout">
           Checkout
         </nuxt-link>

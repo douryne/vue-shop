@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 import alert from '../components/alert'
 import itemCard from '../components/itemCard'
 
@@ -58,7 +58,6 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('items', ['getItem']),
     handleClick (slide) {
       this.getItem(slide)
       this.$router.push('/itemPage')

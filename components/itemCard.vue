@@ -1,14 +1,15 @@
 <template>
   <div class="item mb-5 mx-3">
-    <v-btn icon large class="mb-12" @click="removeItem(item)">
+    <v-btn v-if="removable" icon large class="mb-12" @click="removeItem(item)">
       <v-icon>mdi-delete-forever</v-icon>
       {{ item.id }}
     </v-btn>
-    <h1 @click="getItem(item)">
+    <v-img :src="item.src" />
+    <h2 @click="getItem(item)">
       <nuxt-link :to="{ name: 'itemPage' }">
         {{ item.title }}
       </nuxt-link>
-    </h1>
+    </h2>
     <h2>{{ item.category }}</h2>
     <p>{{ item.price }}</p>
     <v-btn small fab dark color="indigo" @click="saveItemInTheBasket(item)">
@@ -20,12 +21,16 @@
 </template>
 
 <script>
-import { mapMutations, mapActions } from 'vuex'
+import { mapMutations, mapActions, mapState } from 'vuex'
 
 export default {
   name: 'ItemCard',
   props: {
+    removable: { type: Boolean, required: false, default: false },
     item: { type: Object, required: true }
+  },
+  computed: {
+    ...mapState('items', ['disabled'])
   },
   methods: {
     ...mapMutations('items', ['getItem']),
@@ -39,7 +44,7 @@ export default {
     padding: 50px;
     border: 1px solid #CBCBCB;
     border-radius: 10%;
-    width: 300px;
+    width: 18vw;
     height: auto;
   }
 </style>

@@ -4,7 +4,7 @@
       <v-icon>mdi-delete-forever</v-icon>
       {{ item.id }}
     </v-btn>
-    <v-img width="30vw" height="auto" :src="item.src" />
+    <v-img class="mb-6" width="30vw" height="auto" :src="item.src" />
     <h2 class="mb-6" @click="getItem(item)">
       <nuxt-link :to="{ name: 'itemPage' }">
         {{ item.title }}

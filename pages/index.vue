@@ -16,7 +16,7 @@
         :key="i"
         @click="handleClick(slide)"
       >
-        <v-img class="slider-image" :src="slide.src" :alt="slide.src" />
+        <v-img class="slider-image" :src="slide.srcForSlider" :alt="slide.srcForSlider" />
       </v-carousel-item>
     </v-carousel>
     <v-select
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import alert from '../components/alert'
 import itemCard from '../components/itemCard'
 
@@ -58,6 +58,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('items', ['getItem']),
     handleClick (slide) {
       this.getItem(slide)
       this.$router.push('/itemPage')

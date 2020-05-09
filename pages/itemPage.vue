@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column">
-    <v-img :src="item.src" class="mb-12 mt-6" />
+    <v-img max-width="300px" max-height="400px" :src="item.src" class="itemImg mb-12 mt-6" />
     <hr>
     <div>
       <h1>{{ item.title }}</h1>

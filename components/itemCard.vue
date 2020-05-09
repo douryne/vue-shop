@@ -4,14 +4,13 @@
       <v-icon>mdi-delete-forever</v-icon>
       {{ item.id }}
     </v-btn>
-    <v-img :src="item.src" />
-    <h2 @click="getItem(item)">
+    <v-img width="30vw" height="auto" :src="item.src" />
+    <h2 class="mb-6" @click="getItem(item)">
       <nuxt-link :to="{ name: 'itemPage' }">
         {{ item.title }}
       </nuxt-link>
     </h2>
-    <h2>{{ item.category }}</h2>
-    <p>{{ item.price }}</p>
+    <p class="mb-6"><strong>{{ item.price }}</strong></p>
     <v-btn small fab dark color="indigo" @click="saveItemInTheBasket(item)">
       <v-icon dark>
         mdi-plus

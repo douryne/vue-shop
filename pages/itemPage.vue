@@ -7,8 +7,11 @@
       <h2 class="mt-6 mb-4">
         Specs:
       </h2>
-      <h4>{{ item.specs }}</h4>
-      <v-btn color="indigo accent-1">
+      <h4 v-for="(spec, i) in item.specs" :key="i">
+        {{ spec }}
+      </h4>
+      <h2 class="mt-4">Price: {{ item.price }}</h2>
+      <v-btn class="mt-8" color="indigo accent-1">
         <nuxt-link class="checkout" to="/checkout">
           Checkout
         </nuxt-link>

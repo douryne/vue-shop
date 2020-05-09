@@ -54,6 +54,7 @@ export default {
   },
   methods: {
     ...mapMutations('auth', ['getData']),
+    ...mapMutations('items', ['emailChanger']),
     ...mapActions('auth', ['login']),
     ...mapActions('alerts', ['getAlert']),
     async submitHandler () {
@@ -65,6 +66,7 @@ export default {
       try {
         await this.login(formData)
         await this.getData(this.email)
+        await this.emailChanger(this.email)
         this.$router.push('/')
       } catch (e) {}
     }

@@ -25,9 +25,8 @@ export const state = () => ({
   ],
   item: {},
   basket: [],
-  filterValue: 'Default',
-  itemsFromHighPrice: [],
-  itemsFromLowPrice: []
+  email: null,
+  filterValue: 'Default'
 })
 
 export const getters = {
@@ -53,13 +52,22 @@ export const getters = {
   }
 }
 export const mutations = {
+  getItem (state, item) {
+    state.item = item
+  },
+  updateBasket (state, basket) {
+    state.basket = basket
+  },
   pushToBasket (state, item) {
     if (!state.basket.filter(({ id }) => id === item.id).length) {
       state.basket.push(item)
     }
   },
-  getItem (state, item) {
-    state.item = item
+  emailChanger (state, email) {
+    state.email = email
+  },
+  clearEmail (state) {
+    state.email = null
   },
   updateFilterValue (state, filterValue) {
     state.filterValue = filterValue
@@ -67,15 +75,54 @@ export const mutations = {
 }
 
 export const actions = {
-  async saveItemInTheBasket ({ dispatch, commit }, item) {
+  async saveItemInTheBasket ({ dispatch, commit, state }, item) {
     const uid = await dispatch('getUid')
-    await firebase.database().ref(`/users/${uid}/info`).set({
-      items: [item, item, item]
-    })
-    commit('pushToBasket', item)
+    if (state.email === null) {
+      commit('pushToBasket', item)
+      localStorage.setItem('basket', JSON.stringify(state.basket))
+    } else {
+      commit('pushToBasket', item)
+      await firebase.database().ref().child(`/users/${uid}`).set({
+        items: state.basket
+      })
+    }
+  },
+  async removeItem ({ dispatch, commit, state }, item) {
+    const uid = await dispatch('getUid')
+    if (state.email === null) {
+      const basket = JSON.parse(localStorage.getItem('basket'))
+      basket.forEach(({ id }, i) => {
+        if (item.id === id) { basket.splice(i, 1) }
+      })
+      commit('updateBasket', basket)
+      localStorage.setItem('basket', JSON.stringify(state.basket))
+    } else {
+      const basket = state.basket.slice()
+      basket.forEach(({ id }, i) => {
+        if (item.id === id) { basket.splice(i, 1) }
+      })
+      commit('updateBasket', basket)
+      await firebase.database().ref().child(`/users/${uid}`).set({
+        items: state.basket
+      })
+    }
   },
   getUid () {
     const user = firebase.auth().currentUser
     return user ? user.uid : null
+  },
+  async deleteAllItemsInTheBasket ({ dispatch, commit, state }) {
+    const uid = await dispatch('getUid')
+    if (state.email === null) {
+      const basket = []
+      commit('updateBasket', basket)
+      localStorage.setItem('basket', JSON.stringify(state.basket))
+    } else {
+      const basket = []
+      commit('updateFirebaseBasket', basket)
+      await firebase.database().ref(`/users/${uid}`).set({
+        items: state.firebaseBasket
+      })
+    }
   }
 }

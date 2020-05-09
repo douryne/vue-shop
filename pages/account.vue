@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>Account</h1>
-    <v-btn @click="logout">logout</v-btn>
+    <v-btn color="indigo accent-1" @click="logout">
+      Logout
+    </v-btn>
   </div>
 </template>
 
@@ -12,7 +14,9 @@ export default {
   middleware: 'auth',
   methods: {
     ...mapMutations('auth', ['clearData']),
+    ...mapMutations('items', ['clearEmail']),
     logout () {
+      this.clearEmail()
       this.clearData()
       this.$router.push('/')
     }

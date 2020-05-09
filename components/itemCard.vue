@@ -1,5 +1,9 @@
 <template>
   <div class="item mb-5 mx-3">
+    <v-btn icon large class="mb-12" @click="removeItem(item)">
+      <v-icon>mdi-delete-forever</v-icon>
+      {{ item.id }}
+    </v-btn>
     <h1 @click="getItem(item)">
       <nuxt-link :to="{ name: 'itemPage' }">
         {{ item.title }}
@@ -25,7 +29,7 @@ export default {
   },
   methods: {
     ...mapMutations('items', ['getItem']),
-    ...mapActions('items', ['saveItemInTheBasket'])
+    ...mapActions('items', ['saveItemInTheBasket', 'removeItem'])
   }
 }
 </script>

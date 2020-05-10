@@ -63,7 +63,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      color="indigo accent-1"
+      color="rgba(100, 120, 255, 0.8)"
       :clipped-left="clipped"
       fixed
       app

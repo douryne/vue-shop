@@ -1,8 +1,10 @@
 <template>
   <div class="d-flex flex-column">
-    <v-img max-width="300px" max-height="400px" :src="item.src" class="itemImg mb-12 mt-6" />
-    <hr>
     <div>
+      <v-img max-width="400px" :src="item.src" class="itemImg mb-12 mx-auto mt-6" />
+    </div>
+    <hr>
+    <div class="mt-12">
       <h1>{{ item.title }}</h1>
       <h2 class="mt-6 mb-4">
         Specs:
@@ -36,5 +38,10 @@ export default {
   .checkout {
     text-decoration: none;
     color: black;
+  }
+  .itemImg {
+    display: block;
+    height: auto;
+    object-fit: contain;
   }
 </style>

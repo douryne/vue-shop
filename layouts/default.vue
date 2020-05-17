@@ -11,8 +11,8 @@
         <v-card-text>
           <v-select
             v-model="selected"
-            color="indigo accent-3"
-            item-color="indigo accent-3"
+            color="grey darken-2"
+            item-color="grey darken-2"
             :items="select"
             label="A Select List"
             item-value="text"
@@ -23,14 +23,14 @@
         </h3>
         <v-textarea
           v-model="problemText"
-          background-color="indigo lighten-4"
-          color="indigo accent-3"
+          background-color="grey lighten-2"
+          color="grey darken-1"
           filled
           label="Your problem"
           auto-grow
         />
         <v-card-actions class="d-flex justify-center">
-          <v-btn color="indigo accent-1" :disabled="selected === null || problemText === ''" class="supportBtn" @click="sendMessage">
+          <v-btn color="grey darken-3" dark :disabled="selected === null || problemText === ''" class="supportBtn" @click="sendMessage">
             Send
           </v-btn>
         </v-card-actions>
@@ -47,7 +47,7 @@
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
-          color="indigo accent-3"
+          color="grey darken-3"
           :to="item.to"
           class=""
           router
@@ -63,7 +63,8 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      color="rgba(100, 120, 255, 0.8)"
+      color="rgba(0, 0, 0, 0.8)"
+      dark
       :clipped-left="clipped"
       fixed
       app
@@ -97,8 +98,8 @@
       </v-container>
     </v-content>
     <v-footer
-      color="indigo lighten-3"
-      :fixed="fixed"
+      dark
+      absolute="false"
       app
     >
       <v-spacer />
@@ -119,7 +120,6 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      fixed: false,
       dialog: false,
       selected: null,
       problemText: '',

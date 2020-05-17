@@ -22,6 +22,8 @@
     <v-select
       v-model="filterValue"
       class="itemPriceSelect ml-6"
+      color="grey darken-2"
+      item-color="grey darken-2"
       :items="['Default','itemsFromHighPrice', 'itemsFromLowPrice']"
       dense
       outlined

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Account</h1>
-    <v-btn color="indigo accent-1" @click="logout">
+    <v-btn color="grey darken-3" dark @click="logout">
       Logout
     </v-btn>
   </div>

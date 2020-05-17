@@ -6,15 +6,22 @@
         Login
       </h1>
       <v-form class="mt-12">
-        <v-text-field v-model="email" label="E-mail" />
-        <v-text-field v-model="password" autocomplete="on" type="password" label="Password" />
+        <v-text-field v-model="email" color="grey darken-3" label="E-mail" />
+        <v-text-field v-model="password" color="grey darken-3" autocomplete="on" type="password" label="Password" />
         <div class="d-flex justify-center flex-column">
-          <v-btn class="mx-auto mb-5" depressed color="indigo accent-1" style="height: 40px; width: 400px" @click="submitHandler">
+          <v-btn
+            class="mx-auto mb-5"
+            depressed
+            dark
+            color="grey darken-3"
+            style="height: 40px; width: 400px"
+            @click="submitHandler"
+          >
             Login
           </v-btn>
           <div class="d-flex justify-space-around align-center">
             <strong>Don't have an account?</strong>
-            <v-btn depressed color="indigo accent-1" to="/registration" style="height: 40px; width: 200px;">
+            <v-btn depressed dark color="grey darken-3" to="/registration" style="height: 40px; width: 200px;">
               Register
             </v-btn>
           </div>

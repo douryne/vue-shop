@@ -5,6 +5,8 @@
     </h1>
     <v-select
       v-model="filterValue"
+      color="grey darken-2"
+      item-color="grey darken-2"
       class="itemPriceSelect ml-6"
       :items="['Default','itemsFromHighPrice', 'itemsFromLowPrice']"
       dense

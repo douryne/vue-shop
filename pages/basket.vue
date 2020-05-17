@@ -3,7 +3,7 @@
     <h1 class="mt-6 mb-12 mx-n3">
       Basket
     </h1>
-    <v-btn class="deleteBtn mx-auto mb-12" color="indigo accent-1" @click="deleteAllItemsInTheBasket">
+    <v-btn class="deleteBtn mx-auto mb-12" dark color="grey darken-3" @click="deleteAllItemsInTheBasket">
       Remove All
     </v-btn>
     <div class="d-flex justify-space-between flex-wrap">

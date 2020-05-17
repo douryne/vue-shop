@@ -10,14 +10,15 @@
         Register
       </h1>
       <v-form v-model="valid" class="mt-12" @submit.prevent="submitHandler">
-        <v-text-field v-model="email" label="E-mail" />
-        <v-text-field v-model="name" :rules="[(value) => value.length > 1 ]" label="Name" />
-        <v-text-field v-model="password" autocomplete="on" type="password" label="Password" />
+        <v-text-field v-model="email" color="grey darken-3" label="E-mail" />
+        <v-text-field v-model="name" color="grey darken-3" :rules="[(value) => value.length > 1 ]" label="Name" />
+        <v-text-field v-model="password" color="grey darken-3" autocomplete="on" type="password" label="Password" />
         <div class="d-flex flex-column">
           <v-btn
             class="mr-4 mb-5"
             depressed
-            color="indigo accent-1"
+            dark
+            color="grey darken-3"
             style="height: 40px; width: 400px"
             type="submit"
           >
@@ -25,7 +26,7 @@
           </v-btn>
           <div class="d-flex justify-space-around align-center">
             <strong>Do have an account?</strong>
-            <v-btn depressed color="indigo accent-1" to="/login" style="height: 40px; width: 200px;">
+            <v-btn depressed dark color="grey darken-3" to="/login" style="height: 40px; width: 200px;">
               Log in
             </v-btn>
           </div>

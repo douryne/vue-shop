@@ -28,7 +28,8 @@
       <v-btn
         class="buyBtn"
         :disabled="model === undefined"
-        color="indigo accent-1"
+        dark
+        color="grey darken-3"
         @click="getAlertAndRedirect"
       >
         Buy

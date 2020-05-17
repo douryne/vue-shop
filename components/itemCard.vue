@@ -2,21 +2,20 @@
   <div class="item d-flex justify-space-between flex-column align-center mb-5 mx-3">
     <v-btn v-if="removable" icon large class="mb-12" @click="removeItem(item)">
       <v-icon>mdi-delete-forever</v-icon>
-      {{ item.id }}
     </v-btn>
     <div>
-      <v-img max-width="12vw" class="itemCardImg mb-6" :src="item.src" />
+      <v-img max-width="12vw" class="item_card_img mb-6" :src="item.src" />
     </div>
     <div>
       <h2 class="mb-6" @click="getItem(item)">
-        <nuxt-link :to="{ name: 'itemPage' }">
+        <nuxt-link :to="{ name: 'itemPage' }" style="color: black; text-decoration: none; opacity: .75">
           {{ item.title }}
         </nuxt-link>
       </h2>
-      <p class="mb-6">
-        <strong>{{ item.price }}</strong>
-      </p>
-      <v-btn small fab dark color="indigo" @click="saveItemInTheBasket(item)">
+      <h3 class="mb-6" style="color: #47494e">
+        {{ item.price }}₽
+      </h3>
+      <v-btn small fab dark color="grey darken-3" @click="saveItemInTheBasket(item)">
         <v-icon dark>
           mdi-plus
         </v-icon>
@@ -47,14 +46,13 @@ export default {
 <style>
   .item {
     padding: 50px;
-    border: 1px solid #CBCBCB;
     border-radius: 10%;
     width: 18vw;
     height: auto;
   }
-  .itemCardImg {
-    display: block;
-    height: auto;
-    object-fit: contain;
+  .item_card_img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
   }
 </style>

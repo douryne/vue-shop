@@ -1,27 +1,25 @@
 <template>
-  <div class="item d-flex justify-space-between flex-column align-center mb-5 mx-3">
-    <v-btn v-if="removable" icon large class="mb-12" @click="removeItem(item)">
-      <v-icon>mdi-delete-forever</v-icon>
-    </v-btn>
-    <div>
-      <v-img max-width="12vw" class="item_card_img mb-6" :src="item.src" />
-    </div>
-    <div>
-      <h2 class="mb-6" @click="getItem(item)">
-        <nuxt-link :to="{ name: 'itemPage' }" style="color: black; text-decoration: none; opacity: .75">
-          {{ item.title }}
-        </nuxt-link>
+  <nuxt-link :to="{ name: 'itemPage' }" style="text-decoration: none;">
+    <div class="item d-flex justify-space-between flex-column align-center mb-5 mx-3" @click="getItem(item)">
+      <v-btn v-if="removable" icon large class="mb-12" @click="saveOrRemoveItem([$event, item])">
+        <v-icon>mdi-delete-forever</v-icon>
+      </v-btn>
+      <div>
+        <v-img max-width="12vw" class="item_card_img mb-6" :src="item.src" />
+      </div>
+      <h2 class="mb-6" style="color: black; opacity: .75">
+        {{ item.title }}
       </h2>
       <h3 class="mb-6" style="color: #47494e">
         {{ item.price }}₽
       </h3>
-      <v-btn small fab dark color="grey darken-3" @click="saveItemInTheBasket(item)">
+      <v-btn small fab dark color="grey darken-3" @click="saveOrRemoveItem([$event, item])">
         <v-icon dark>
           mdi-plus
         </v-icon>
       </v-btn>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -38,7 +36,11 @@ export default {
   },
   methods: {
     ...mapMutations('items', ['getItem']),
-    ...mapActions('items', ['saveItemInTheBasket', 'removeItem'])
+    ...mapActions('items', ['saveItemInTheBasket', 'removeItem']),
+    saveOrRemoveItem ([event, item]) {
+      event.preventDefault()
+      this.removable ? this.removeItem(item) : this.saveItemInTheBasket(item)
+    }
   }
 }
 </script>
@@ -46,9 +48,9 @@ export default {
 <style>
   .item {
     padding: 50px;
-    border-radius: 10%;
     width: 18vw;
-    height: auto;
+    height: 100%;
+    transition: background-color 0.5s;
   }
   .item_card_img {
     height: 200px;

@@ -1,6 +1,5 @@
 <template>
   <div class="list_body d-flex text-center align-center flex-column">
-    <alert />
     <h1 class="mt-6 mb-12 mx-n3">
       My Shop
     </h1>
@@ -40,13 +39,11 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import alert from '../components/alert'
 import itemCard from '../components/itemCard'
 
 export default {
   components: {
-    itemCard,
-    alert
+    itemCard
   },
   computed: {
     ...mapGetters('items', ['filteredItems', 'getHotItems']),
@@ -70,20 +67,6 @@ export default {
 </script>
 
 <style>
-  .alert-enter-active, .alert-leave-active {
-    transition: opacity 1s;
-  }
-  .alert-enter, .alert-leave-to {
-    opacity: 0;
-  }
-  .alert {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    height: 80px;
-  }
   .item_list {
     background-color: #ffffff;
   }

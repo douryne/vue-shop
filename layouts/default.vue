@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <alert />
     <v-dialog
       v-model="dialog"
       max-width="500px"
@@ -99,7 +100,7 @@
     </v-content>
     <v-footer
       dark
-      absolute="false"
+      absolute
       app
     >
       <v-spacer />
@@ -115,7 +116,11 @@
 
 <script>
 import { mapActions } from 'vuex'
+import alert from '../components/alert'
 export default {
+  components: {
+    alert
+  },
   data () {
     return {
       clipped: false,
@@ -185,6 +190,21 @@ export default {
 </script>
 
 <style>
+  .alert-enter-active, .alert-leave-active {
+    transition: opacity 1s;
+  }
+  .alert-enter, .alert-leave-to {
+    opacity: 0;
+  }
+  .alert {
+    position: fixed;
+    top: 9%;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 80px;
+  }
   .supportBtn{
     width: 150px;
     height: auto;

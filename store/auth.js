@@ -17,10 +17,12 @@ export const mutations = {
   },
   getData (state, email) {
     state.dataForm = email
+    // eslint-disable-next-line no-console
     console.log(state.dataForm)
   },
   clearData (state) {
     state.dataForm = null
+    // eslint-disable-next-line no-console
     console.log(state.dataForm)
   }
 }

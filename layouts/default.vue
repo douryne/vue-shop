@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <alert />
+    <!-- <alert /> -->
     <v-dialog
       v-model="dialog"
       max-width="500px"
@@ -93,11 +93,11 @@
         </v-icon>
       </v-btn>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
     <v-footer
       dark
       absolute
@@ -116,10 +116,10 @@
 
 <script>
 import { mapActions } from 'vuex'
-import alert from '../components/alert'
+// import alert from '../components/alert'
 export default {
   components: {
-    alert
+    // alert
   },
   data () {
     return {

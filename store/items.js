@@ -59,6 +59,11 @@ export const mutations = {
     state.basket = basket
   },
   pushToBasket (state, item) {
+    if (!state.basket) {
+      state.basket = []
+      state.basket.push(item)
+      return
+    }
     if (!state.basket.filter(({ id }) => id === item.id).length) {
       state.basket.push(item)
     }

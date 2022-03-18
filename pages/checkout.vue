@@ -9,9 +9,9 @@
     <v-list class=" wayList mb-10">
       <v-list-item-group v-model="model" active-class="image" class="d-flex flex-row justify-space-between">
         <v-list-item
-          class="list-item"
           v-for="(way, i) in ways"
           :key="i"
+          class="list-item"
         >
           <v-img
             :src="way.src"

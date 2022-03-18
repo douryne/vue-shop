@@ -12,15 +12,22 @@
       <v-form v-model="valid" class="mt-12" @submit.prevent="submitHandler">
         <v-text-field v-model="email" color="grey darken-3" label="E-mail" />
         <v-text-field v-model="name" color="grey darken-3" :rules="[(value) => value.length > 1 ]" label="Name" />
-        <v-text-field v-model="password" color="grey darken-3" autocomplete="on" type="password" label="Password" />
+        <v-text-field
+          v-model="password"
+          color="grey darken-3"
+          :rules="[(value) => value.length >= 6 ]"
+          autocomplete="on"
+          type="password"
+          label="Password"
+        />
         <div class="d-flex flex-column">
           <v-btn
             class="mr-4 mb-5"
             depressed
-            dark
-            color="grey darken-3"
-            style="height: 40px; width: 400px"
             type="submit"
+            style="height: 40px; width: 400px"
+            color="grey darken-3"
+            dark
           >
             Register
           </v-btn>
@@ -67,7 +74,7 @@ export default {
   },
   methods: {
     ...mapActions('auth', ['register']),
-    ...mapActions('alerts', ['getAlert']),
+    ...mapMutations('alerts', ['getAlert']),
     ...mapMutations('alerts', ['changeAlertText']),
     ...mapMutations('alerts', ['changeAlertType']),
     async submitHandler () {

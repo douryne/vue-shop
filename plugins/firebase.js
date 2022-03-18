@@ -14,7 +14,9 @@ const firebaseConfig = {
 
 // eslint-disable-next-line no-unused-vars
 let app = null
+// eslint-disable-next-line import/namespace
 if (!firebase.apps.length) {
+  // eslint-disable-next-line import/namespace
   app = firebase.initializeApp(firebaseConfig)
 }
 

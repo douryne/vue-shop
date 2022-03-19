@@ -1,7 +1,6 @@
 <template>
   <div class="d-flex justify-center align-center">
     <div class="d-flex justify-center flex-column align-center" style="width: 400px">
-      <alert />
       <h1 class="mx-auto mt-6 mb-6">
         Login
       </h1>
@@ -33,13 +32,9 @@
 
 <script>
 import { mapActions, mapMutations, mapGetters, mapState } from 'vuex'
-import alert from '../components/alert'
 
 export default {
   name: 'Login',
-  components: {
-    alert
-  },
   data () {
     return {
       email: '',
@@ -82,18 +77,4 @@ export default {
 </script>
 
 <style>
-  .alert-enter-active, .alert-leave-active {
-    transition: opacity 1s;
-  }
-  .alert-enter, .alert-leave-to {
-    opacity: 0;
-  }
-  .alert {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    height: 80px;
-  }
 </style>

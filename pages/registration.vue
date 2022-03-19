@@ -1,11 +1,6 @@
 <template>
   <div class="d-flex justify-center">
     <div class="d-flex justify-center flex-column" style="width: 400px">
-      <transition name="alert">
-        <v-alert v-if="alert === true" class="alert d-flex align-center" type="error">
-          {{ error.message }}
-        </v-alert>
-      </transition>
       <h1 class="mx-auto mt-6 mb-6">
         Register
       </h1>
@@ -67,16 +62,12 @@ export default {
   },
   watch: {
     error () {
-      this.getAlert()
-      this.changeAlertText(this.error)
-      this.changeAlertType(this.alertType)
+      this.getAlert([this.alertType, this.error])
     }
   },
   methods: {
     ...mapActions('auth', ['register']),
-    ...mapMutations('alerts', ['getAlert']),
-    ...mapMutations('alerts', ['changeAlertText']),
-    ...mapMutations('alerts', ['changeAlertType']),
+    ...mapActions('alerts', ['getAlert']),
     async submitHandler () {
       if (!this.valid) { return }
       const formData = {
@@ -94,18 +85,4 @@ export default {
 </script>
 
 <style>
-  .alert-enter-active, .alert-leave-active {
-    transition: opacity 1s;
-  }
-  .alert-enter, .alert-leave-to {
-    opacity: 0;
-  }
-  .alert {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    height: 80px;
-  }
 </style>

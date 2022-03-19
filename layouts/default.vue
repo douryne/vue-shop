@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <!-- <alert /> -->
+    <alert />
     <v-dialog
       v-model="dialog"
       max-width="500px"
@@ -109,17 +109,17 @@
           Support
         </span>
       </v-btn>
-      <span>&copy; Ofoty {{ new Date().getFullYear() }}</span>
+      <span>&copy; Douryne {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-// import alert from '../components/alert'
+import alert from '../components/alert'
 export default {
   components: {
-    // alert
+    alert
   },
   data () {
     return {
@@ -197,13 +197,12 @@ export default {
     opacity: 0;
   }
   .alert {
-    position: fixed;
-    top: 9%;
-    z-index: 1;
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute;
+    bottom: 5vh;
+    right: 0;
     width: auto;
     height: 80px;
+    z-index: 2;
   }
   .supportBtn{
     width: 150px;

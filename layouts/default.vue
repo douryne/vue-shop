@@ -197,8 +197,8 @@ export default {
     opacity: 0;
   }
   .alert {
-    position: absolute;
-    bottom: 5vh;
+    position: fixed;
+    bottom: 35px;
     right: 0;
     width: auto;
     height: 80px;

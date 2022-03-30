@@ -3,12 +3,13 @@
 Магазин бытовой техники.
 
 Технологии и API:
-1.Vue.js
-2.VueX
-3.Nuxt.js
-4.Vuetify
-5.Webpack
-6.Firebase
+
+1. Vue.js
+2. VueX
+3. Nuxt.js
+4. Vuetify
+5. Webpack
+6. Firebase
 
 Проект был залит на Heroku: https://og-vue-shop.herokuapp.com/
 
